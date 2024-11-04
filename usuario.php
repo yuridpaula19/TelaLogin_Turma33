@@ -37,10 +37,39 @@
                 $sql->bindValue(":n",$nome);
                 $sql->bindValue(":t",$telefone);
                 $sql->bindValue(":e",$email);
-                $sql->bindValue(":s",$senha);
+                $sql->bindValue(":s",md5($senha));
                 $sql->execute();
                 return true;
             }
+        }
+        public function logar($email, $senha)
+        {
+            global $pdo;
+
+            $verificarEmail = $pdo->prepare("SELECT id_usuario FROM usuario WHERE email = :e AND senha = :s");
+            $verificarEmail->bindValue(":e",$email);
+            $verificarEmail->bindValue(":s",md5($senha));
+            $verificarEmail->execute();
+
+            if($verificarEmail->rowCount()>0)
+            {
+                $dados = $verificarEmail->fetch();
+                session_start();
+                $_SESSION['id_usuario'] = $dados['id_usuario'];
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public function listar($nome, $telefone, $email, $senha)
+        {
+            global $pdo;
+
+            $listar = $pdo->prepare("SELECT * FROM usuario");
+            
         }
     }
 
