@@ -63,15 +63,44 @@
                 return false;
             }
         }
+        public function listarUsuarios()
+        {
+            global $pdo;
+            
+            $sqlListar = $pdo->prepare("SELECT * FROM usuario");
+            $sqlListar->execute();
+            if($sqlListar->rowCount()>0)
+            {
+                $dados = $sqlListar->fetchAll(PDO::FETCH_ASSOC);
+                return $dados;
+            }
+            else
+            {
+                return false;
+            }
+        }
 
-        public function listar($nome, $telefone, $email, $senha)
+        public function deletar(int $id)
         {
             global $pdo;
 
-            $listar = $pdo->prepare("SELECT * FROM usuario");
+            $sql = $pdo->prepare("DELETE FROM usuario WHERE id_usuario = :i");
+            $sql->bindValue(":i",$id);
+            $sql->execute();
+        }
+
+        public function atualizar($id_usuario,$nome, $telefone, $email, $senha)
+        {
+                global $pdo;
             
+                $sql = $pdo->prepare("UPDATE usuario SET nome = :n, telefone = :t, email = :e, senha = :s WHERE id_usuario = :id_usuario");
+                $sql->bindValue(":id_usuario",$id_usuario);
+                $sql->bindValue(":n",$nome);
+                $sql->bindValue(":t",$telefone);
+                $sql->bindValue(":e",$email);
+                $sql->bindValue(":s",md5($senha));
+                $sql->execute();
+                return true;
         }
     }
-
-
 ?>
