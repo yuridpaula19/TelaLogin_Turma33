@@ -89,18 +89,27 @@
             $sql->execute();
         }
 
-        public function atualizar($id_usuario,$nome, $telefone, $email, $senha)
+        public function atualizar($id_usuario, $nome, $telefone, $email, $senha)
         {
-                global $pdo;
-            
-                $sql = $pdo->prepare("UPDATE usuario SET nome = :n, telefone = :t, email = :e, senha = :s WHERE id_usuario = :id_usuario");
-                $sql->bindValue(":id_usuario",$id_usuario);
-                $sql->bindValue(":n",$nome);
-                $sql->bindValue(":t",$telefone);
-                $sql->bindValue(":e",$email);
-                $sql->bindValue(":s",md5($senha));
+            global $pdo;
+
+            $sql = $pdo->prepare("SELECT id_usuario FROM usuario WHERE email = :e AND id_usuario != :id");
+            $sql->bindValue(":e", $email);
+            $sql->bindValue(":id", $id_usuario);
+            $sql->execute();
+
+            if ($sql->rowCount() > 0) {
+                return false;
+            } else {
+                $sql = $pdo->prepare("UPDATE usuario SET nome = :n, telefone = :t, email = :e, senha = :s WHERE id_usuario = :id");
+                $sql->bindValue(":id", $id_usuario);
+                $sql->bindValue(":n", $nome);
+                $sql->bindValue(":t", $telefone);
+                $sql->bindValue(":e", $email);
+                $sql->bindValue(":s", md5($senha));
                 $sql->execute();
                 return true;
+            }
         }
     }
 ?>
