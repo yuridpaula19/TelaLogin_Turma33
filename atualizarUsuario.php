@@ -15,6 +15,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id_usuario'])) {
         if ($senha === $confSenha) {
             if ($usuario->atualizar($id_usuario, $nome, $telefone, $email, $senha)) {
                 echo "<p>Dados atualizados com sucesso.</p>";
+                header("Location: areaRestrita.php");
             } else {
                 echo "<p>Erro: Email já cadastrado para outro usuário.</p>";
             }
