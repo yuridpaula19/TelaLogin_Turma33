@@ -1,5 +1,6 @@
 <?php
     require_once 'usuario.php';
+    require_once 'cabecalho.php';
     $usuario = new Usuario();
 ?>
 
@@ -8,23 +9,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <title>Tela Cadastro</title>
 </head>
 <body>
-    <h2>Cadastro de Usuario</h2><br>
-    <form action="" method="post">
-        <label>Nome:</label>
-        <input type="text" name="nome" id=""placeholder="Nome Completo"><br>
-        <label>Email:</label>
-        <input type="email" name="email" id=""placeholder="Digite o email"><br>
-        <label>Telefone:</label>
-        <input type="tel" name="telefone" id=""placeholder="Telefone Completo"><br>
-        <label>Senha:</label>
-        <input type="password" name="senha" id=""placeholder="Digite sua Senha"><br>
-        <label>Confirmar Senha:</label>
-        <input type="password" name="confSenha" id=""placeholder="Confirme sua Senha"><br>
+    <h1 class="text-center mb-4">Cadastro de Usuario</h1><br>
+    <form action="" method="post" class="bg-light p-5 rounded shadow">
+        <label class="form-label">Nome:</label>
+        <input type="text" name="nome" class="form-control" id=""placeholder="Nome Completo"><br>
+        <label class="form-label">Email:</label>
+        <input type="email" name="email" class="form-control" id=""placeholder="Digite o email"><br>
+        <label class="form-label">Telefone:</label>
+        <input type="tel" name="telefone" class="form-control" id=""placeholder="Telefone Completo"><br>
+        <label class="form-label">Senha:</label>
+        <input type="password" name="senha" class="form-control" id=""placeholder="Digite sua Senha"><br>
+        <label class="form-label">Confirmar Senha:</label>
+        <input type="password" name="confSenha" class="form-control" id=""placeholder="Confirme sua Senha"><br>
         
-        <input type="submit" value="CADASTRAR">
+        <input type="submit" value="CADASTRAR" class="btn btn-primary w-100">
     </form>
 
 

@@ -9,18 +9,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <title>Tela Login</title>
 </head>
 <body>
-    <h2>Tela Login</h2><br><br>
-    <form method="post">
-        <label>Usuario</label>
-        <input type="email" name="email" id=""placeholder="Digite seu e-mail."><br><br>
-        <label>Senha</label>
-        <input type="password" name="senha" id=""placeholder="Digite sua senha"><br><br>
+    <h1 class="text-center mb-4">Tela Login</h1><br><br>
+    <form method="post" class="bg-light p-5 rounded shadow">
+        <label class="form-label">Usuario:</label>
+        <input type="email" name="email" class="form-control" id=""placeholder="Digite seu e-mail."><br><br>
+        <label class="form-label">Senha:</label>
+        <input type="password" name="senha" class="form-control" id=""placeholder="Digite sua senha"><br><br>
 
-        <input type="submit" value="LOGAR"><br>
-        <a href="cadastro.php">INSCREVA-SE</a>
+        <input type="submit" value="LOGAR" class="btn btn-primary w-100"><br><br>
+        <a href="cadastro.php" class="btn btn-primary w-100" style="background-color: green; border:none;">INSCREVA-SE</a>
     </form>
 
     <?php

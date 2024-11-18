@@ -1,0 +1,270 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+}
+header {
+    background-color: #0056b3;
+    color: white;
+    padding: 1rem;
+}
+header .logo img {
+    height: 50px;
+}
+nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+nav ul li {
+    display: inline;
+    margin-right: 15px;
+}
+nav ul li a {
+    color: white;
+    text-decoration: none;
+}
+nav ul li a:hover {
+    text-decoration: underline;
+}
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: #000000;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    border-radius: 0 0 5px 5px;
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height 0.3s ease, opacity 0.3s ease;
+    opacity: 0;
+    z-index: 1000;
+}
+.dropdown-menu li {
+
+    margin: 0;
+}
+.dropdown-menu li a {
+    color: white;
+    padding: 0.5rem 1rem;
+    display: block;
+    text-decoration: none;
+}
+.dropdown-menu li a:hover {
+    background-color: #004494;
+}
+.show {
+    display: block;
+}
+main {
+    padding: 2rem;
+}
+#home h1 {
+    color: #007bff;
+}
+#sobre-nos {
+    background-color: #e9ecef;
+    padding: 2rem;
+    border-radius: 0.5rem;
+}
+footer {
+    background-color: #0056b3;
+    color: white;
+    text-align: center;
+    padding: 1rem;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}
+
+
+
+.cabecalho {
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    padding-right: 25px;
+    align-items: center;
+}
+
+.logo img {
+    height: 80px;
+    padding-left: 20px;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+}
+
+nav ul li {
+    position: relative;
+    margin-left: 20px;
+}
+
+nav ul li a {
+    color: #000000;
+    text-decoration: none;
+    font-weight: bold;
+    display: flex;
+    padding: 2px;
+
+}
+
+
+.dropdown-menu.show {
+    display: block;
+    max-height: 300px;
+    background-color: rgb(228, 228, 228);
+    box-shadow: #333 1px 2px 30px;
+    opacity: 1;
+}
+
+.dropdown-menu li {
+    margin: 0;
+}
+
+.dropdown-menu li a {
+    display: block;
+    padding: 5px;
+    color: #000000;
+    text-decoration: none;
+    font-size: 15px;
+}
+
+.dropdown-menu li a:hover {
+    transition: 0.3s ease-in-out;
+    background: #c0c0c4;
+    color: #0f0f0f;
+}
+
+main {
+    padding: 20px;
+    background: #f4f4f4;
+}
+
+section {
+    margin-bottom: 20px;
+}
+
+section h1,
+section h2 {
+    color: #333;
+}
+
+
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    nav ul {
+        flex-direction: column;
+        margin-top: 10px;
+    }
+
+    .dropdown-menu {
+        position: static;
+        background: #333;
+        width: 100%;
+        max-height: none;
+    }
+
+    .dropdown-menu li a {
+        padding: 15px;
+    }
+}
+
+
+h1 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.tabela-alunos {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    border-collapse: collapse;
+    background-color: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+.tabela-alunos thead {
+    background-color: #4CAF50;
+    color: white;
+    text-transform: uppercase;
+}
+
+.tabela-alunos th,
+.tabela-alunos td {
+    padding: 15px;
+    text-align: left;
+}
+
+.tabela-alunos th {
+    letter-spacing: 1px;
+}
+
+.tabela-alunos tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.tabela-alunos tbody tr:hover {
+    background-color: #f1f1f1;
+}
+
+.tabela-alunos td ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.tabela-alunos td ul li {
+    padding: 8px;
+    background-color: #e8f5e9;
+    border-radius: 5px;
+    margin-bottom: 5px;
+}
+
+.tabela-alunos td ul li:hover {
+    background-color: #c8e6c9;
+}
+
+@media (max-width: 768px) {
+    .tabela-alunos thead {
+        display: none;
+    }
+
+    .tabela-alunos tbody tr {
+        display: block;
+        margin-bottom: 15px;
+    }
+
+    .tabela-alunos td {
+        display: block;
+        padding: 10px;
+        text-align: right;
+        position: relative;
+    }
+
+    .tabela-alunos td::before {
+        content: attr(data-label);
+        position: absolute;
+        left: 10px;
+        text-transform: uppercase;
+        font-weight: bold;
+    }
+}
+
+.acoes{
+    display: flex;
+    flex-direction: row;
+}
